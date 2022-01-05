@@ -1,9 +1,14 @@
 package dev;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceException;
+import javax.persistence.TypedQuery;
+
+import dev.entites.Pizza;
 
 
 public class TestJpa {
@@ -17,7 +22,18 @@ public class TestJpa {
 
 			EntityManager em = emf.createEntityManager();
 			
+			Pizza pizzaId1 = em.find(Pizza.class, 1);
+			System.out.println("Pizza id=1 name=" + pizzaId1.getName());
 			
+			TypedQuery<Pizza> query = em.createQuery("select p from Pizza p", Pizza.class);
+			
+			List<Pizza> listePizzas = query.getResultList();
+			
+			for (Pizza pizza : listePizzas) {
+				System.out.println(pizza.getName());
+			}
+
+			System.out.println("Pizza id=1 name=" + pizzaId1.getName());
 
 			em.close();
 			
