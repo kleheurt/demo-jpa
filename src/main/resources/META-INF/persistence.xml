@@ -15,4 +15,17 @@
 			<property name="hibernate.show_sql" value="true" />
 		</properties>
 	</persistence-unit>
+	<persistence-unit name="pu_livre" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<properties>
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:mariadb://localhost:3306/biblio" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password"
+				value="" />
+			<property name="javax.persistence.jdbc.driver"
+				value="org.mariadb.jdbc.Driver" />
+			<property name="hibernate.show_sql" value="true" />
+		</properties>
+	</persistence-unit>
 </persistence>
