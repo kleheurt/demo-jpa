@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -22,7 +22,7 @@ public class Emprunt {
 	@Column(name = "ID")
 	private Integer id;
 	
-	@OneToMany
+	@ManyToOne
 	@JoinColumn(name = "ID_CLIENT")
 	private Client client;
 	
@@ -40,7 +40,7 @@ public class Emprunt {
 	@ManyToMany
 	@JoinTable(name="COMPO",
 			joinColumns=@JoinColumn(name="ID_EMP", referencedColumnName="ID"),
-			inverseJoinColumns=@JoinColumn(name="ID_LV", referencedColumnName="ID")
+			inverseJoinColumns=@JoinColumn(name="ID_LIV", referencedColumnName="ID")
 	)
 	private Set<Livre> livres;
 
