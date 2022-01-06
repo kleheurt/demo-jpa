@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "client")
-public class Client {
+public class ClientPizza {
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)

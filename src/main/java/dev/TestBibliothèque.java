@@ -5,7 +5,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceException;
 
-import dev.entites.Client;
+import dev.entites.ClientPizza;
 import dev.entites.Emprunt;
 import dev.entites.Livre;
 
@@ -25,7 +25,7 @@ public class TestBibliothèque {
 			for (Livre l : emp.getLivres()) System.out.println(l.getTitre());
 			
 			// Extraire un client et afficher tous ses emprunts
-			Client cli = em.find(Client.class, 1);
+			ClientPizza cli = em.find(ClientPizza.class, 1);
 			for(Emprunt e : cli.getEmprunts()) System.out.println(e.getId());
 			
 			em.close();

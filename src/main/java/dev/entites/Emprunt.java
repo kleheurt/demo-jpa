@@ -24,7 +24,7 @@ public class Emprunt {
 	
 	@ManyToOne
 	@JoinColumn(name = "ID_CLIENT")
-	private Client client;
+	private ClientPizza client;
 	
 	@Column(name = "DATE_DEBUT")
 	@Temporal(value=TemporalType.TIMESTAMP)
@@ -61,11 +61,11 @@ public class Emprunt {
 	}
 
 
-	public Client getClient() {
+	public ClientPizza getClient() {
 		return client;
 	}
 
-	public void setClient(Client client) {
+	public void setClient(ClientPizza client) {
 		this.client = client;
 	}
 
