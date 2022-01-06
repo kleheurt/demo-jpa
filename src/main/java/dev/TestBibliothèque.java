@@ -23,7 +23,6 @@ public class TestBibliothèque {
 			Emprunt emp = em.find(Emprunt.class, 1);
 			for (Livre l : emp.getLivres())
 				System.out.println(l.getTitre());
-			
 			em.close();
 		}
 		catch(PersistenceException e) {
