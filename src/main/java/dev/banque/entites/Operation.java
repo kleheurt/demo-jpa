@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public abstract class Operation {
+public class Operation {
 	
 	@Id
 	private LocalDateTime date;
@@ -42,7 +42,10 @@ public abstract class Operation {
 		this.compte = compte;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return this.motif;
+	}
 	
 
 }
