@@ -1,5 +1,8 @@
 package dev.banque.entites;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Virement extends Operation{
 
 	private String beneficiaire;
@@ -12,5 +15,8 @@ public class Virement extends Operation{
 		this.beneficiaire = beneficiaire;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "Virement vers "+this.beneficiaire+" pour motif : "+this.motif;
+	}
 }

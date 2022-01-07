@@ -76,9 +76,24 @@ public class Client {
 		this.comptes.add(c);
 	}
 	
+	public Client(String nom, String prenom, LocalDate ddn, Adresse adresse, Banque banque) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.dateNaissance = ddn;
+		this.adresse = adresse;
+		this.banque = banque;
+		this.comptes = new HashSet<Compte>();
+	}
+	
 	public Client() {
 		super();
 		this.comptes = new HashSet<Compte>();
+	}
+	
+	@Override
+	public String toString() {
+		return this.prenom+" "+this.nom;
 	}
 
 }

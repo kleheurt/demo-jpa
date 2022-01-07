@@ -9,10 +9,10 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Compte {
+public abstract class Compte {
 
 	@Id
-	private String numero;
+	protected String numero;
 	private double solde;
 	
 	@OneToMany(mappedBy="compte")
@@ -58,6 +58,15 @@ public class Compte {
 		super();
 		this.clients = new HashSet<Client>();
 		this.operations = new HashSet<Operation>();
+	}
+	
+	@Override
+	public String toString() {
+		String s = " détenu par : ";
+		for (Client client : clients) {
+			s += client.getNom()+" ";
+		}
+		return s;
 	}
 
 }

@@ -6,9 +6,9 @@ import javax.persistence.Embeddable;
 public class Adresse {
 	
 
-	private int numero;
+	private Integer numero;
 	private String rue;
-	private int codePostal;
+	private Integer codePostal;
 	private String ville;
 	
 
@@ -38,7 +38,15 @@ public class Adresse {
 		this.ville = ville;
 	}
 
-
+	public Adresse() {
+		super();
+	}
 	
+	public Adresse(Integer numero, String rue, Integer codePostal, String ville) {
+		this.numero = numero;
+		this.rue = rue;
+		this.codePostal = codePostal;
+		this.ville = ville;
+	}
 
 }

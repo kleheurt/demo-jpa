@@ -1,8 +1,11 @@
 package dev.banque.entites;
 
+import javax.persistence.Entity;
+
+@Entity
 public class LivretA extends Compte {
 	
-	private double taux;
+	private double taux = 2;
 
 	public double getTaux() {
 		return taux;
@@ -12,6 +15,9 @@ public class LivretA extends Compte {
 		this.taux = taux;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "Livret A n°"+this.numero+super.toString();
+	}
 
 }

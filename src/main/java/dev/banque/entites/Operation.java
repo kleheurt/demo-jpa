@@ -7,12 +7,12 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Operation {
+public abstract class Operation {
 	
 	@Id
 	private LocalDateTime date;
 	private double montant;
-	private String motif;
+	protected String motif;
 	
 	@ManyToOne
 	private Compte compte;
