@@ -37,13 +37,13 @@ public class TestBanque {
 		cli2.setId(3);
 
 		Compte co1 = new LivretA();		
-		co1.setNumero("1");
+		co1.setNumero("L1");
 		co1.ajouterClient(cli1);
 		co1.ajouterClient(cli2);
 		co1.setSolde(1000);
 		
 		Compte co2 = new AssuranceVie();
-		co2.setNumero("2");
+		co2.setNumero("A1");
 		co2.ajouterClient(cli2);
 		co2.setSolde(7500);
 		
@@ -99,12 +99,12 @@ public class TestBanque {
 			if(c != null) System.out.println(c);
 			
 			// Présence du compte à deux clients
-			TypedQuery<Compte> qCompte = em.createQuery("select c from Compte c where c.numero='1'", Compte.class);
+			TypedQuery<Compte> qCompte = em.createQuery("select c from Compte c where c.numero='A1'", Compte.class);
 			Compte co = qCompte.getSingleResult();
 			if(co != null) System.out.println(co);
 			
 			// Présence du deuxième compte
-			qCompte = em.createQuery("select c from Compte c where c.numero='2'", Compte.class);
+			qCompte = em.createQuery("select c from Compte c where c.numero='L1'", Compte.class);
 			co = qCompte.getSingleResult();
 			if(co != null) System.out.println(co);
 			
@@ -119,6 +119,12 @@ public class TestBanque {
 			dateOperation = op2.getDate();
 			o = qOp.setParameter("dateOp", dateOperation).getSingleResult();
 			if(o != null) System.out.println(o);
+			
+			// Opérations liées au compte co
+			System.out.println(co.getOperations().size());
+			for (Operation op : co.getOperations()) {
+				System.out.println(op);
+			}
 
 		}
 		catch(PersistenceException e) {

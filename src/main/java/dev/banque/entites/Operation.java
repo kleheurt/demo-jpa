@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -15,6 +16,7 @@ public class Operation {
 	protected String motif;
 	
 	@ManyToOne
+	@JoinColumn(name="id_compte")
 	private Compte compte;
 	
 	public LocalDateTime getDate() {
