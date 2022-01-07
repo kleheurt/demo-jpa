@@ -31,10 +31,8 @@ public class TestBanque {
 		Adresse a2 = new Adresse(1, "rue de la Paix", 99999, "Moulinsart");
 		
 		Client cli1 = new Client("Haddock", "Capitaine", LocalDate.now(), a1, banque);
-		cli1.setId(2);
 		
 		Client cli2 = new Client("Tournesol", "Professeur", LocalDate.now(), a2, banque);
-		cli2.setId(3);
 
 		Compte co1 = new LivretA();		
 		co1.setNumero("L1");
@@ -125,6 +123,8 @@ public class TestBanque {
 			for (Operation op : co.getOperations()) {
 				System.out.println(op);
 			}
+			
+			System.out.println(op1.getCompte());
 
 		}
 		catch(PersistenceException e) {

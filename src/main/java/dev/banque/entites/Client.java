@@ -6,6 +6,8 @@ import java.util.Set;
 
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -14,8 +16,7 @@ import javax.persistence.ManyToOne;
 public class Client {
 	
 	@Id
-	private int id;
-	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)	private Integer id;
 	private String nom;
 	private String prenom;
 	private LocalDate dateNaissance;
@@ -26,7 +27,7 @@ public class Client {
 	@ManyToOne
 	private Banque banque;
 	
-	@ManyToMany
+	@ManyToMany(mappedBy="clients")
 	private Set<Compte> comptes;
 	
 	public String getNom() {
